@@ -34,8 +34,14 @@ def ask_question(question_data, question_number):
     for i, option in enumerate(question_data["options"], start=1):
         print(f"{i}. {option}")
 
-    user_answer = input("Your answer (1-4): ")
-    return user_answer
+    # Input validation loop
+    while True:
+        user_answer = input("Your answer (1-4): ")
+
+        if user_answer in ["1", "2", "3", "4"]:
+            return user_answer
+        else:
+            print("Invalid option. Please select 1 to 4 only.")
 
 
 def check_answer(user_answer, correct_answer):
@@ -53,7 +59,7 @@ def run_quiz():
     question_number = 1
 
     print("Welcome to the Holton College Quiz!")
-    print("Please answer with the letter (1, 2, 3, or 4) of your choice.")
+    print("Please answer with the number (1, 2, 3, or 4) of your choice.")
 
     for q in questions:
         user_answer = ask_question(q, question_number)
@@ -63,4 +69,6 @@ def run_quiz():
     print(f"\nQuiz Complete! You scored {score} out of {len(questions)}.")
     print("Thank you for playing!")
 
+
+# Start the quiz
 run_quiz()
