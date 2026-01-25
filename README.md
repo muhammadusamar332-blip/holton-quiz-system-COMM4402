@@ -9,4 +9,4 @@ Module Code: COMM4402
 2. Open terminal in this folder  
 3. Run:
 
-python quiz.py
+python programming.py
